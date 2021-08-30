@@ -13,7 +13,8 @@ import {
     ElContainer,
     ElAutocomplete,
     ElDropdown,
-    ElScrollbar
+    ElScrollbar,
+    ElMenu
 } from "element-plus";
 
 const app = createApp(App)
@@ -30,6 +31,7 @@ app.use(ElContainer)
 app.use(ElAutocomplete)
 app.use(ElDropdown)
 app.use(ElScrollbar)
+app.use(ElMenu)
 
 app.use(router)
 app.use(i18n)

@@ -5,7 +5,9 @@
     </el-header>
     <el-container class="container">
       <!-- 如果访问的是首页，则不渲染左侧栏 -->
-      <el-aside width="200px" v-if="!($route.path === '/')">Aside</el-aside>
+      <el-aside v-if="!($route.path === '/')">
+        <LeftAside />
+      </el-aside>
       <!-- scroll -->
       <el-scrollbar @scroll="scrollView($event, $route.path)">
         <el-main>
@@ -21,6 +23,7 @@
 <script>
 // import Model from "@/components/Model";
 import Header from "@/components/Header";
+import LeftAside from "@/components/LeftAside";
 import { _throttle } from "@/utils/tool";
 
 export default {
@@ -31,6 +34,7 @@ export default {
   },
   components: {
     Header,
+    LeftAside,
     // Model
   },
   methods: {
@@ -51,7 +55,6 @@ export default {
 
 <style lang="scss">
 @import url(./assets/css/base.css);
-@import url(./assets/css/vars.scss);
 #app {
   width: 100%;
   height: 100%;
@@ -65,12 +68,22 @@ export default {
 }
 .el-scrollbar {
   width: 100%;
-}
-.el-main {
-  height: 100%;
+  .el-main {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
 }
 .el-aside {
   height: 100%;
-  background-color: #f00;
+  padding: 0 40px;
+  user-select: none;
+  .el-menu {
+      height: 100%;
+    .el-menu-item:hover {
+      background: none;
+      color: #409eff;
+    }
+  }
 }
 </style>

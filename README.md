@@ -1,4 +1,4 @@
-# my-app
+# Vue3
 
 ## Project setup
 
