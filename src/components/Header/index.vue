@@ -10,7 +10,7 @@
         size="small"
         v-model="state1"
         :fetch-suggestions="querySearch"
-        placeholder="搜索文档"
+        :placeholder="$t('搜索文档')"
         @select="handleSelect"
       ></el-autocomplete>
     </li>
@@ -27,14 +27,18 @@
       <div class="nav-gap"></div>
     </li>
     <li class="nav-item lang-item">
-      <el-dropdown trigger="click">
+      <el-dropdown trigger="click" @command="handleSetLanguage">
         <span class="el-dropdown-link">
-          中文<i class="el-icon-arrow-down el-icon--right"></i>
+          {{ $t(language) }}<i class="el-icon-arrow-down el-icon--right"></i>
         </span>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item>中文</el-dropdown-item>
-            <el-dropdown-item>英文</el-dropdown-item>
+            <el-dropdown-item command="zhCN" :disabled="language === 'zhCN'"
+              >中文</el-dropdown-item
+            >
+            <el-dropdown-item command="en" :disabled="language === 'en'"
+              >英文</el-dropdown-item
+            >
           </el-dropdown-menu>
         </template>
       </el-dropdown>
@@ -46,6 +50,14 @@
 import { defineComponent, ref, onMounted } from "vue";
 
 export default defineComponent({
+  data() {
+    return {};
+  },
+  computed: {
+    language() {
+      return this.$store.getters.language;
+    },
+  },
   setup() {
     const restaurants = ref([]);
     const querySearch = (queryString, cb) => {
@@ -80,6 +92,12 @@ export default defineComponent({
       loadAll,
       handleSelect,
     };
+  },
+  created() {},
+  methods: {
+    handleSetLanguage(lang) {
+      this.$store.dispatch("setLanguage", lang);
+    },
   },
 });
 </script>

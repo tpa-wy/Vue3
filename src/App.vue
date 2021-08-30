@@ -7,7 +7,7 @@
       <!-- 如果访问的是首页，则不渲染左侧栏 -->
       <el-aside width="200px" v-if="!($route.path === '/')">Aside</el-aside>
       <!-- scroll -->
-      <el-scrollbar @scroll="scrollView($event)">
+      <el-scrollbar @scroll="scrollView($event, $route.path)">
         <el-main>
           <router-view />
         </el-main>
@@ -35,11 +35,12 @@ export default {
   },
   methods: {
     // 节流
-    scrollView: _throttle((e) => {
+    scrollView: _throttle((e, route) => {
       const { scrollTop } = e;
-      //   console.log(scrollTop)
-      if (scrollTop < 600) {
-        document.querySelector(".scroll-red").style.height = `${scrollTop}px`;
+      // console.log(scrollTop)
+      if (scrollTop < 500 && route === "/") {
+        // +20 是 el-main 的 padding
+        document.querySelector(".scroll-red").style.height = `${scrollTop + 20}px`;
       }
     }, 50),
   },
@@ -48,6 +49,7 @@ export default {
 
 <style lang="scss">
 @import url(./assets/css/base.css);
+@import url(./assets/css/vars.scss);
 #app {
   width: 100%;
   height: 100%;

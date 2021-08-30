@@ -22,7 +22,8 @@ export default {};
 .demo1 {
   width: 890px;
   margin: 30px auto;
-  @media screen and (max-width: 1000px) {
+  /* 手机端 || 平板端 隐藏 */
+  @media ($medium-screen) {
     display: none;
   }
   .scroll-view {
