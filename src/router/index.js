@@ -1,7 +1,7 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 export default createRouter({
-    history: createWebHistory(),
+    history: createWebHashHistory(),
     meta: "history",
     routes: [
         {
@@ -16,5 +16,10 @@ export default createRouter({
             component: () => import('../pages/Demo1'),
         },
         // 404
+        {
+            path: "/:pathMatch(.*)*",
+            name: "404",
+            component: () => import('../pages/Error/404'),
+        }
     ],
 })

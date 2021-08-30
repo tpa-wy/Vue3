@@ -93,7 +93,6 @@ export default defineComponent({
       handleSelect,
     };
   },
-  created() {},
   methods: {
     handleSetLanguage(lang) {
       this.$store.dispatch("setLanguage", lang);

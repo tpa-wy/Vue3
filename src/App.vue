@@ -40,7 +40,9 @@ export default {
       // console.log(scrollTop)
       if (scrollTop < 500 && route === "/") {
         // +20 是 el-main 的 padding
-        document.querySelector(".scroll-red").style.height = `${scrollTop + 20}px`;
+        document.querySelector(".scroll-red").style.height = `${
+          scrollTop + 20
+        }px`;
       }
     }, 50),
   },
