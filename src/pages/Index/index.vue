@@ -1,9 +1,18 @@
 <template>
-  <div>主体内容</div>
+  <div>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <Demo1 />
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  </div>
 </template>
 
 <script>
-export default {};
+import Demo1 from "@/pages/Demo1";
+
+export default {
+  components: { Demo1 },
+};
 </script>
 
 <style>

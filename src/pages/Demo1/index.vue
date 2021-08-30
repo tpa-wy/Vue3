@@ -1,6 +1,5 @@
 <template>
   <div class="demo1">
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
     <div class="scroll-view">
       <img
         class="theme-index-blue"
@@ -12,8 +11,6 @@
         <img src="../../assets/demo1/theme-index-red.png" alt="" srcset="" />
       </div>
     </div>
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    1
   </div>
 </template>
 
@@ -25,8 +22,9 @@ export default {};
 .demo1 {
   width: 890px;
   margin: 30px auto;
-  /* overflow-y: auto; */
-  /* min-height: 100%; */
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
   .scroll-view {
     position: relative;
   }

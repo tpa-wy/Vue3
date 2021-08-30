@@ -4,7 +4,9 @@
       <Header />
     </el-header>
     <el-container class="container">
-      <el-aside width="200px">Aside</el-aside>
+      <!-- 如果访问的是首页，则不渲染左侧栏 -->
+      <el-aside width="200px" v-if="!($route.path === '/')">Aside</el-aside>
+      <!-- scroll -->
       <el-scrollbar @scroll="scrollView($event)">
         <el-main>
           <router-view />
